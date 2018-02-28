@@ -8,6 +8,13 @@ module.exports = function getZerosCount(number, base) {
             maxDevisor = primes[i]
         }
     }
+    let degree = 0, tmp = base
+    while (tmp % maxDevisor === 0) {
+        degree++
+        tmp /= maxDevisor
+    }
+
+    console.log(maxDevisor)
     let counter = 0
     while(number > 0) {
         number = Math.floor(number  / maxDevisor);
@@ -15,5 +22,5 @@ module.exports = function getZerosCount(number, base) {
     }
 
 
-    return counter;
+    return Math.floor(counter / degree);
 }
